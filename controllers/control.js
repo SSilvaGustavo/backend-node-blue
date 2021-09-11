@@ -11,7 +11,7 @@ const getFilme = async (req, res) => {
 };
 
 const getFilmeId = async (req, res) => {
-  await Filmes.find({ _id: req.params.id })
+  await Filmes.findOne({ _id: req.params.id })
     .then((filme) => {
       res.status(200).send(`Filme encontrado com sucesso 
     ${filme}`);

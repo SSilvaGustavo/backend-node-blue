@@ -1,11 +1,19 @@
-if(process.env.NODE_ENV !== "production"){
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
 const express = require("express");
+
+const cors = require("cors");
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSucessStatus: 200,
+};
+
 const app = express();
 app.use(express.json());
+app.use(cors(corsOptions));
 
-const port = 3000;
+const port = 3001;
 
 const Conn = require("./models/conn/conn");
 const db_url = process.env.DB_URL;
